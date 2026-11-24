@@ -149,6 +149,7 @@ class Boy:
         game_world.add_oject(ball)
         game_world.add_collision_pair('grass:ball', None, ball)
         game_world.add_collision_pair('boy:ball', None, ball)
+        game_world.add_collision_pair('ball:zombie', None, ball)
 
     def pause(self):
         self.pressed_keys.clear()
@@ -185,6 +186,8 @@ class Boy:
         if group == 'boy:ball':
             self.ball_count += 1
             print("Collision Boy and Ball", flush=True)
+        elif group == 'boy:zombie':
+            game_framework.quit()
 
     def update(self):
         self.states[self.state].do(self)
