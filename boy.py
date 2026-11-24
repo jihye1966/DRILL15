@@ -11,18 +11,12 @@ from ball import Ball
 
 import game_framework
 
-# 달리기 속력을 시속 km에서 초속 m, 다시 초당 픽셀로 변환한다.
 PIXEL_PER_METER = (10.0 / 0.3)  # 10 pixel 30 cm
 RUN_SPEED_KMPH = 20.0  # Km / Hour
 RUN_SPEED_MPM = (RUN_SPEED_KMPH * 1000.0 / 60.0)
 RUN_SPEED_MPS = (RUN_SPEED_MPM / 60.0)
 RUN_SPEED_PPS = (RUN_SPEED_MPS * PIXEL_PER_METER)
 
-# 한 보폭은 0.8m이고, 달리기 애니메이션 5프레임이 한 보폭에 해당한다.
-# 7km/h = 7000 / 3600 = 약 1.944m/s
-# 한 보폭에 걸리는 시간 = 0.8 / 1.944 = 약 0.411초
-# 한 프레임의 지속시간 = 0.411 / 5 = 약 0.082초
-# 초당 프레임 수 = (초속 / 보폭) * 보폭당 프레임 수 = 약 12.15
 STRIDE_LENGTH_M = 1.5  # 보폭 길이
 RUN_FRAMES_PER_STRIDE = 5 # 1개 보폭에 대한 애니메이션 프레임 수
 RUN_FRAMES_PER_SECOND = RUN_SPEED_MPS / STRIDE_LENGTH_M * RUN_FRAMES_PER_STRIDE # 프레임 증가 속도, 즉 1초당 몇개 프레임을 증가시켜야 하는가? 
